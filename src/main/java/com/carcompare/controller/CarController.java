@@ -56,7 +56,7 @@ public class CarController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/brands", method = RequestMethod.GET)
+	@RequestMapping(value = "/autoMakers", method = RequestMethod.GET)
 	public @ResponseBody Iterable<AutoMaker> listAutoMakers(){
 		
 		return autoMakerRepository.findAll();
