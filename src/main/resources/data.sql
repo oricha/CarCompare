@@ -13,3 +13,6 @@ insert into CAR(id, id_automaker, model, year) values (5, 4 , 'A4', 2015);
 insert into CAR(id, id_automaker, model, year) values (6, 4 , 'A4', 2018);
 insert into CAR(id, id_automaker, model, year) values (7, 4 , 'A1', 2016);
 insert into CAR(id, id_automaker, model, year) values (8, 5 , 'Mustang', 2017);
+
+insert into CAR_DETAIL(id, id_car_detail, price, type, places, length, width, height, gearbox, fuel)
+            values (1,1, 42000, 'Turismo', 5, 4.70, 1.87, 1.42, 'DSG', 'Gasoil');

@@ -19,7 +19,7 @@ public class CarDetail {
 
     private long id_car_detail;
     private Integer  price;
-    private String TurType;
+    private String type;
     private int places;
     private Integer length;
     private Integer width;
