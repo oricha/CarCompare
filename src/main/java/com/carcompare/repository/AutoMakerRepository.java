@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AutoMakerRepository  extends CrudRepository<AutoMaker, Long> {
 	
-	public AutoMaker findById(long id);
+	AutoMaker findById(long id);
 
 }

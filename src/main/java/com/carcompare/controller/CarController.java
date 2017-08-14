@@ -4,6 +4,7 @@ import com.carcompare.entities.AutoMaker;
 import com.carcompare.entities.Car;
 import com.carcompare.repository.AutoMakerRepository;
 import com.carcompare.repository.CarRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 @RequestMapping("/car")
+@Slf4j
 public class CarController {
-	
-	private static final Logger log = LoggerFactory.getLogger(CarController.class);
 	
 	@Autowired
 	private CarRepository carRepository;
@@ -47,10 +48,10 @@ public class CarController {
 	 */
 	@RequestMapping(value = "/{car_id1}/{car_id2}", method = RequestMethod.GET)
 	public @ResponseBody Iterable<Car> compareCars(@PathVariable long car_id1, @PathVariable long car_id2){
-		Collection<Long> list = new ArrayList<>();
+		List<Long> list = new ArrayList<>();
 		list.add(car_id1);
 		list.add(car_id2);
-		return carRepository.findAll();
+		return carRepository.findCarsById(list);
 	}
 	/**
 	 * 

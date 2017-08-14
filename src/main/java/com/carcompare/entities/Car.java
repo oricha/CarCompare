@@ -1,11 +1,16 @@
 package com.carcompare.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name="CAR")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,39 +19,8 @@ public class Car {
 	private String model;
 	private Integer year;
 
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
-	public Car(){}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public long getId_automaker() {
-		return id_automaker;
-	}
-
-	public void setId_automaker(long id_automaker) {
-		this.id_automaker = id_automaker;
-	}
-
-	public Integer getYear() {
-		return year;
-	}
-
-	public void setYear(Integer year) {
-		this.year = year;
-	}
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_car_detail")
+	private CarDetail detail;
 
 }
